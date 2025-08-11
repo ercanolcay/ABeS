@@ -38,6 +38,10 @@ Callsign
 
 Passcode
 
+Longitude
+
+Latitude
+
 Beacon interval **(minimum 20 minutes)**
 
 ## Building Executable
