@@ -43,22 +43,30 @@ def verify_passcode(callsign: str, passcode: str) -> bool:
 # -------------------------------------------------------------
 
 def load_settings():
+    defaults = {
+        'CALLSIGN': 'NOCALL',
+        'PASSCODE': '00000',
+        'LAT': '41.00000',
+        'LON': '27.00000',
+        'TABLE': '/',
+        'SYMBOL': 'r',
+        'COMMENT': 'APRS Beacon',
+        'INTERVAL': '1200'
+    }
     config = configparser.ConfigParser()
     config.read(CONFIG_FILE)
+
     if 'SETTINGS' not in config:
-        config['SETTINGS'] = {
-            'CALLSIGN': 'NOCALL',
-            'PASSCODE': '00000',
-            'LAT': '41.00000',
-            'LON': '27.00000',
-            'TABLE': '/',
-            'SYMBOL': 'r',
-            'COMMENT': 'APRS Beacon',
-            'INTERVAL': '1200'
-        }
-        with open(CONFIG_FILE, 'w') as f:
-            config.write(f)
+        config['SETTINGS'] = defaults
+    else:
+        for key, value in defaults.items():
+            if key not in config['SETTINGS']:
+                config['SETTINGS'][key] = value
+
+    with open(CONFIG_FILE, 'w') as f:
+        config.write(f)
     return config
+
 
 def save_settings(callsign, passcode, lat, lon, table, symbol, comment, interval):
     config = configparser.ConfigParser()
@@ -296,6 +304,7 @@ def setup_gui():
 def main():
     setup_gui()
     threading.Thread(target=setup_tray, daemon=True).start()
+    start_beacon()
     root.mainloop()
 
 if __name__ == "__main__":
