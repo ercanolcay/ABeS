@@ -97,6 +97,9 @@ Aprs Symbol (both primary and secondary tables)
 
 Beacon interval **(minimum 5 minutes)**
 
+## Screenshot of GUI
+<img width="378" height="354" alt="image" src="https://github.com/user-attachments/assets/51f4a2b2-0b94-42f6-831e-fff940f43bc7" />
+
 ## License
 
 Project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
