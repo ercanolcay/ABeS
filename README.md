@@ -70,9 +70,9 @@ Restart=always
 
 [Install]
 WantedBy=default.target
-
-3. Enable and start the service:
 ```
+3. Enable and start the service:
+
 ```bash
 systemctl --user enable abes.service
 systemctl --user start abes.service
