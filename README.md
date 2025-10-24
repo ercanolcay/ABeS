@@ -102,7 +102,7 @@ Beacon interval **(minimum 5 minutes)**
 
 ## License
 
-Project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Project is licensed under the APGL-3.0 License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
